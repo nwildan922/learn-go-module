@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package counter;
+
+option go_package = "/proto/counterpb";
+
+// request
+message CounterRequest {
+  int32 counter = 1;
+}
+
+// response
+message CounterResponse {
+  int32 counter = 1;
+  string timestamp = 2;
+}
+
+// service definition
+service CounterService {
+  rpc SendCounter (CounterRequest) returns (CounterResponse);
+}
